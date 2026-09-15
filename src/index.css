@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-ink-900 text-paper font-sans antialiased;
+  background-image: radial-gradient(
+      circle at 15% 10%,
+      rgba(79, 209, 197, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(circle at 85% 90%, rgba(79, 209, 197, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+::selection {
+  @apply bg-signal/30 text-white;
+}
+
+/* thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-ink-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ink-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-signal/50;
+}
+
+@layer components {
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-signal;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .card {
+    @apply rounded-xl border border-ink-700 bg-ink-850/60 backdrop-blur-sm;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-md border border-ink-700 bg-ink-800/70 px-2.5 py-1 font-mono text-[11px] text-muted transition-colors hover:border-signal/60 hover:text-signal;
+  }
+}
